@@ -1,3 +1,7 @@
+//ES modules 
 import message from './message';
 
-console.log(message.text);
+// CommonJS modules with webpack.config.js 
+import './css/style.css';
+
+console.log(message);
