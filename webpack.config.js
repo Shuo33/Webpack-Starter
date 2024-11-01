@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -9,6 +10,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
     },
+   // definir the rules of the loader
     module: {
         rules: [
             {
@@ -16,5 +18,13 @@ module.exports = {
                 use: ['style-loader', 'css-loader']
             }
         ]
-    }
+    },
+    // have the instance of the plugins inside the array, like an instance of HtmlWebpackPlugin for exemple 
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: 'Webpack App',
+            filename: 'index.html',
+            template: './src/index.html'
+        })
+    ]
 };
