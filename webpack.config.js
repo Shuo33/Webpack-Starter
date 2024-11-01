@@ -10,7 +10,18 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
     },
-   // definir the rules of the loader
+    // configure the webpack server
+    devServer: {
+        static: {
+            directory: path.resolve(__dirname, 'dist')
+        },
+        port: 3000,
+        open: true,
+        hot: true,
+        compress: true,
+        historyApiFallback: true
+    },
+    // definir the rules of the loader
     module: {
         rules: [
             {
